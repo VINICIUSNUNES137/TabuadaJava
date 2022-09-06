@@ -1,5 +1,6 @@
 package br.senai.sp.jandira;
 
+import br.senai.sp.jandira.gui.FrameTabuada;
 import br.senai.sp.jandira.model.Tabuada;
 
 public class AppTabuada {
@@ -20,8 +21,23 @@ public class AppTabuada {
 		while (contador < resultado.length) {
 			System.out.println(resultado[contador]);
 			contador++;
-			
+		
 		}
+		
+
+		FrameTabuada tela = new FrameTabuada();
+		
+		tela.altura = 700;
+		tela.largura = 500;
+		
+		
+		tela.criarTela();
+		
+		
+		
+		
+		
+		
 		
 		
 
