@@ -2,26 +2,26 @@ package br.senai.sp.jandira.model;
 
 public class Tabuada {
 
-	public double multiplicando;
+	public int multiplicado;
 	public int minMultiplicador;
 	public int maxMultiplicador;
-	public double produto = 0;
 
-	// definindo o tamanho do vetor
-	public String[] resultado = new String[minMultiplicador + 1];
+	public String[] getTabuada() {
+		
+		int tamanho = maxMultiplicador - minMultiplicador + 1;
 
-	// definindo a quantidade de repetições
-	// public String[] tabuada = new String[minMaxSubtracao];
+		String tabuada[] = new String[tamanho];
+		int contador = 0;
 
-	public String[] getCalcular() {
-		 
-		while (minMultiplicador <= maxMultiplicador) {
-			produto = multiplicando * minMultiplicador;
-			resultado[minMultiplicador] = multiplicando + " X " + minMultiplicador + " = " + produto;
+		while (contador < tamanho) {
+			int produto = multiplicado * minMultiplicador;
+			String resultado = multiplicado + " X " + minMultiplicador + " = " + produto;
+			tabuada[contador] = resultado;
+
+			contador++;
 			minMultiplicador++;
 		}
-		
-		return resultado;
-
+		return tabuada;
 	}
+
 }
