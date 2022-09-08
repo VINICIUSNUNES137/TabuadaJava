@@ -11,7 +11,7 @@ public class AppTabuada {
 
 		FrameTabuada tela = new FrameTabuada();
 
-		tela.altura = 700;
+		tela.altura = 710;
 		tela.largura = 400;
 		tela.titulo = "Tabuada";
 		tela.corDeFundoDeTela = new Color(255, 255, 255);

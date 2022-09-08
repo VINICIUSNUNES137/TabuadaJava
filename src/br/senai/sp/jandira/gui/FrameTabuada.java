@@ -120,6 +120,13 @@ public class FrameTabuada {
 		labelResultado.setBounds(10, 280, 365, 200);
 		labelResultado.setFont(fonteDosLabels);
 		labelResultado.setForeground(corDaFonteLabels);
+		
+		
+		JLabel labelCopyright = new JLabel();
+		labelCopyright.setText("Copyright by: Vinicius Nunes | 2022");
+		labelCopyright.setBounds(90, 640, 360, 40);
+		labelCopyright.setFont(fonteDosTexts);
+		labelCopyright.setForeground(corDaFonteLabels);
 
 		JList<String> lista = new JList<String>();
 		JScrollPane scroll = new JScrollPane(lista);
@@ -179,6 +186,7 @@ public class FrameTabuada {
 		painel.add(labelResultado);
 		painel.add(scroll);
 		painel.add(labelImagem);
+		painel.add(labelCopyright);
 
 		tela.setVisible(true);
 
