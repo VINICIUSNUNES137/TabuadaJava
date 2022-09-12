@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
@@ -127,7 +128,7 @@ public class FrameTabuada {
 
 		JLabel labelCopyright = new JLabel();
 		labelCopyright.setText("Copyright by: Vinicius Nunes | 2022");
-		labelCopyright.setBounds(90, 640, 360, 40);
+		labelCopyright.setBounds(60, 640, 360, 40);
 		labelCopyright.setFont(fonteDosTexts);
 		labelCopyright.setForeground(corDaFonteLabels);
 
@@ -137,7 +138,7 @@ public class FrameTabuada {
 
 		scroll.setBounds(10, 400, 365, 250);
 		lista.setBackground(corFundoDaTabuada);
-		lista.setForeground(corDoFundoDaTabuada);
+		lista.setForeground(corDosTexts);
 
 		// adicionando imagem/icone
 		ImageIcon imagem = new ImageIcon(getClass().getResource("lapis-de-cor.png"));
@@ -149,20 +150,42 @@ public class FrameTabuada {
 
 			public void actionPerformed(ActionEvent e) {
 				lista.setBackground(corFundoDaTabuada);
-				lista.setForeground(corDoFundoDaTabuada);
+				lista.setForeground(corDosTexts);
 
-				Tabuada tabuada = new Tabuada();
+				
 
-				tabuada.multiplicado = Integer.parseInt(textMultiplicando.getText());
-				tabuada.minMultiplicador = Integer.parseInt(textMinMultiplicador.getText());
-				tabuada.maxMultiplicador = Integer.parseInt(textMaxMultiplicador.getText());
+				if (textMultiplicando.getText().isEmpty() || textMinMultiplicador.getText().isEmpty()
+						|| textMaxMultiplicador.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null,
+							"Observação: O programa não pode ser executado sem o preenchimento de todos os valores",
+							"OPERAÇÃO INVÁLIDA", JOptionPane.YES_NO_OPTION);
+				}
+				
+			
+				else {
+					Tabuada tabuada = new Tabuada();
 
-				String[] resultado = tabuada.getTabuada();
-				lista.setListData(resultado);
-				scroll.setVisible(true);
+					
+					tabuada.multiplicado = Integer.parseInt(textMultiplicando.getText());
+					tabuada.minMultiplicador = Integer.parseInt(textMinMultiplicador.getText());
+					tabuada.maxMultiplicador = Integer.parseInt(textMaxMultiplicador.getText());
+					
+					
+					if (tabuada.minMultiplicador > tabuada.maxMultiplicador) {
+						JOptionPane.showMessageDialog(null,
+								"Observação: O mínimo multiplicador não pode ser maior \n que o máximo multiplicador, verifique a operação!",
+								"OPERAÇÃO INVÁLIDA", JOptionPane.YES_NO_OPTION);
+					}
+
+					else {
+
+					String[] resultado = tabuada.getTabuada();
+					lista.setListData(resultado);
+					scroll.setVisible(true);
+					}
+				}
 
 			}
-
 		});
 
 		buttonLimpar.addActionListener(new ActionListener() {
