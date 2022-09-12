@@ -22,6 +22,8 @@ public class AppTabuada {
 		// descrição
 		tela.corDaDescricao = new Color(180, 180, 180);
 		tela.fonteDaDescricao = new Font("Montserrat", Font.PLAIN, 12);
+		//text
+		tela.corDosTexts = new Color(255, 20, 30);
 		// labels
 		tela.corDaFonteLabels = new Color(100, 100, 100);
 		tela.fonteDosLabels = new Font("Montserrat", Font.BOLD, 16);

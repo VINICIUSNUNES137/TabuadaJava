@@ -3,6 +3,9 @@ package br.senai.sp.jandira.gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,6 +38,7 @@ public class FrameTabuada {
 	public Color corDoTextoBotaoLimpar;
 	public Color corFundoDaTabuada;
 	public Color corDoFundoDaTabuada;
+	public int codigoDoTexto;
 
 	public void criarTela() {
 		JFrame tela = new JFrame();
@@ -120,8 +124,7 @@ public class FrameTabuada {
 		labelResultado.setBounds(10, 280, 365, 200);
 		labelResultado.setFont(fonteDosLabels);
 		labelResultado.setForeground(corDaFonteLabels);
-		
-		
+
 		JLabel labelCopyright = new JLabel();
 		labelCopyright.setText("Copyright by: Vinicius Nunes | 2022");
 		labelCopyright.setBounds(90, 640, 360, 40);
@@ -130,6 +133,7 @@ public class FrameTabuada {
 
 		JList<String> lista = new JList<String>();
 		JScrollPane scroll = new JScrollPane(lista);
+		scroll.setVisible(false);
 
 		scroll.setBounds(10, 400, 365, 250);
 		lista.setBackground(corFundoDaTabuada);
@@ -155,19 +159,156 @@ public class FrameTabuada {
 
 				String[] resultado = tabuada.getTabuada();
 				lista.setListData(resultado);
+				scroll.setVisible(true);
 
 			}
+
 		});
 
 		buttonLimpar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 
-				lista.setForeground(corFundoDaTabuada);
+				// lista.setForeground(corFundoDaTabuada);
 				textMultiplicando.setText("");
 				textMaxMultiplicador.setText("");
 				textMinMultiplicador.setText("");
+				scroll.setVisible(false);
 
+			}
+		});
+
+		textMultiplicando.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				codigoDoTexto = e.getKeyCode();
+
+				// System.out.println("teste");
+
+				textMultiplicando.setText(textMultiplicando.getText().replaceAll("[^0-9]", ""));
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				if (e.getKeyCode() == 10) {
+					textMinMultiplicador.requestFocus();
+
+				}
+			}
+		});
+
+		textMinMultiplicador.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				codigoDoTexto = e.getKeyCode();
+
+				// System.out.println("teste");
+
+				textMinMultiplicador.setText(textMinMultiplicador.getText().replaceAll("[^0-9]", ""));
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				if (e.getKeyCode() == 10) {
+					textMaxMultiplicador.requestFocus();
+
+				}
+			}
+		});
+
+		textMaxMultiplicador.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				codigoDoTexto = e.getKeyCode();
+
+				// System.out.println("teste");
+
+				textMaxMultiplicador.setText(textMaxMultiplicador.getText().replaceAll("[^0-9]", ""));
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				if (e.getKeyCode() == 10) {
+					buttonCalcular.requestFocus();
+
+				}
+			}
+		});
+
+		buttonCalcular.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if (e.getKeyCode() == 10) {
+					buttonLimpar.requestFocus();
+
+				}
+
+			}
+
+		});
+
+		buttonLimpar.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+				if (e.getKeyCode() == 10) {
+					textMultiplicando.requestFocus();
+				}
 			}
 		});
 
