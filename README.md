@@ -1,6 +1,6 @@
 # <strong>TABUADA 1.0</strong>
 
-[](./TabuadaImagem.png)
+![](./TabuadaImagem.png)
 
 ## [clique aqui para baixar o executável](./executavel/TabuadaVinicius.jar)
 
