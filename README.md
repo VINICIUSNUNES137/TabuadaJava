@@ -1,8 +1,9 @@
 # <strong>TABUADA 1.0</strong>
 
-[](./TabuadaImagem.png)
 
-## [clique aqui para baixar o executável](./executavel/TabuadaVinicius.jar)
+[](https://github.com/VINICIUSNUNES137/TabuadaJava/blob/main/TabuadaImagem.png?raw=true)
+
+## [clique aqui para baixar o executável](https://github.com/VINICIUSNUNES137/TabuadaJava/raw/main/executavel/TabuadaVinicius.jar)
 
 ## <strong>SOBRE</strong>
 
