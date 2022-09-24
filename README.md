@@ -2,7 +2,7 @@
 
 ![](./TabuadaImagem.png)
 
-## [clique aqui para baixar o executável](./executavel/TabuadaVinicius.jar)
+## [clique aqui para baixar o executável](https://github.com/VINICIUSNUNES137/TabuadaJava/raw/main/executavel/TabuadaVinicius.jar)
 
 ## <strong>SOBRE</strong>
 
